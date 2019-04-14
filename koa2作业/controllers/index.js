@@ -1,6 +1,8 @@
-const _ = require('koa-simple-router');
-const indexController = require('./indexController');
-const indexcontroller = new indexController();
+const router = require('koa-simple-router');
+const IndexController = require('./indexController');
+const indexcontroller = new IndexController();
 module.exports = (app) => {
-  _.get('/', indexcontroller.actionIndex())
+  app.use(router(_ => {
+    _.get('/', indexcontroller.actionIndex())
+  }))
 }
