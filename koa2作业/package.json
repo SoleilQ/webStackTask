@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./public/scripts/add.js --out-file ./public/scripts/add-bundle.js",
     "server:dev": "cross-env NODE_ENV=development supervisor ./app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
     "co": "^4.6.0",
     "cross-env": "^5.2.0",
     "koa": "^2.7.0",
@@ -20,5 +23,11 @@
     "loadsh": "0.0.4",
     "log4js": "^4.1.0",
     "supervisor": "^0.12.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-modules-systemjs": "^7.4.0",
+    "@babel/preset-env": "^7.4.3"
   }
 }

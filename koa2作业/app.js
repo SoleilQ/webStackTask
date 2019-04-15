@@ -21,7 +21,8 @@ app.context.render = co.wrap(render({
   root: config.viewDir ,
   autoescape: true,
   //ssr渲染的性能的瓶颈 都在一句话
-  cache: 'memory', // disable, set to false
+  // cache: 'memory', // disable, set to false
+  cache: false,
   ext: 'html',
   varControls: ['[[', ']]'],
   writeBody: false
@@ -29,5 +30,5 @@ app.context.render = co.wrap(render({
 
 
 app.listen(config.port, () => {
-  console.log('🍺🌭Server is running');
+  console.log('🍺🐤Server is running');
 });
