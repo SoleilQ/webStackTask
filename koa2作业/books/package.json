@@ -3,10 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "config": {
+    "port": 3000
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./public/scripts/add.js --out-file ./public/scripts/add-bundle.js",
-    "server:dev": "cross-env NODE_ENV=development supervisor ./app.js",
+    "test": "echo \"🍌test \" && exit 0",
+    "start": "",
+    "build": "",
+    "test:dev": "npm-run-all --parallel test dev ",
+    "es:build": "babel ./public/scripts/add.js --out-file ./public/scripts/add-bundle.js",
+    "server:start": "scripty",
+    "server:dev": "scripty",
+    "server:prod": "scripty",
+    "server:hint": "scripty",
+    "client:dev": "scripty",
+    "client:prod": "scripty",
     "docs": "jsdoc ./**/*.js -d ./docs/jsdocs"
   },
   "author": "",
@@ -24,14 +35,25 @@
     "koa-swig": "^2.2.1",
     "loadsh": "0.0.4",
     "log4js": "^4.1.0",
-    "supervisor": "^0.12.0"
+    "supervisor": "^0.12.0",
+    "yargs-parser": "^13.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "@babel/plugin-transform-modules-systemjs": "^7.4.0",
     "@babel/preset-env": "^7.4.3",
+    "gulp": "^4.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-watch": "^5.0.1",
     "jsdoc": "^3.5.5",
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "npm-run-all": "^4.1.5",
+    "scripty": "^1.9.1",
+    "shelljs": "^0.8.3",
+    "vue-cli": "^2.9.6",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
   }
 }
