@@ -5,16 +5,16 @@ use Yii;
 use yii\web\Controller;
 use yii\data\Pagination;
 use app\models\Books;
+use yii\web\Response;
 
 class BooksController extends Controller
 { 
   public function actionIndex()
   {
-    $query = Books::find();
-    $bookList = $query -> orderBy('id') -> all();
-    return $this -> render('index',[
-      'bookList' => $bookList,
-    ]);
+    $searchModel = new Books();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    Yii::$app->response->format = Response::FORMAT_JSON;
+    return $dataProvider->getModels();
   }
 
   public function actionAdd()

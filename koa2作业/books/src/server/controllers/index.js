@@ -5,6 +5,6 @@ module.exports = (app) => {
   app.use(router(_ => {
     _.get('/', indexcontroller.actionIndex());
     _.get('/index.html', indexcontroller.actionIndex());
-    _.get('/add.html', indexcontroller.actionAdd());
+    _.get('/add', indexcontroller.actionAdd());
   }))
 }

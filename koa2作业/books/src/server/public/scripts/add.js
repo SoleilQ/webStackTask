@@ -4,6 +4,9 @@ class Create {
   }
   fn() {
     console.log('🐘es6语法的初始化');
+    $('#test').click(yd.throttle(function() {
+      fetch()
+    }, 10));
   }
 }
 
