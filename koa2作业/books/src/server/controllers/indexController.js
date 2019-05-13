@@ -23,10 +23,15 @@ class IndexController {
 
   actionAdd() {
     return async (ctx, next) => {
-      const params = new URLSearchParams();
+      const params = new FormData();
       params.append("Books[name]","测试");
       params.append("Books[category]","测试");
       const index = new Index();
+      if(true) {
+        //这个时候我们就渲染 一段json
+      } else {
+        //请求落地页
+      }
       const result =  await index.saveData({
         params
       });

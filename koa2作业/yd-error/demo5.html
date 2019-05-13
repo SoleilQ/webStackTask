@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>promise错误</title>
+</head>
+
+<body>
+  <script>
+    // new Promise((reslove, reject) => {
+    //   reject('第一个error');
+    // }).catch(function(err) {
+    //   console.log(err);
+    // });
+
+    window.addEventListener('unhandledrejection', function(e) {
+      e.preventDefault();
+      console.log(e.reason);
+      return true;
+    });
+    new Promise((reslove, reject) => {
+      reject('第一个error');
+    });
+    Promise.resolve().then(() => {
+      throw "第三个error";
+    });
+    Promise.reject('第二个错误');
+  </script>
+</body>
+
+</html>

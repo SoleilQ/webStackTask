@@ -10,10 +10,16 @@
 </head>
 
 <body>
-    <div>
+    <div class="container" id="app">
       {% block content %}{% endblock  %}
     </div>
-  <script src="https://cdn.staticfile.org/vue/2.6.10/vue.js"></script>
+  <!-- <script src="https://cdn.staticfile.org/vue/2.6.10/vue.js"></script> -->
+  <script src="https://cdn.staticfile.org/x-tag/2.0.9-alpha/x-tag-raw.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <script>
+    $(document).pjax("a", "#app");
+  </script>
   {% block scripts %}{% endblock  %}
 </body>
 

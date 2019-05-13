@@ -4,6 +4,9 @@ let config = {
   'viewDir': join(__dirname, '..', 'views'),
   'staticDir': join(__dirname, '..', 'public')
 }
+if(false){
+  console.log("啦啦啦啦");
+}
 if (process.env.NODE_ENV == "development") {
   const localConfig = {
     port: 3000,
@@ -12,13 +15,15 @@ if (process.env.NODE_ENV == "development") {
   config = extend(config, localConfig);
 }
 
-if (process.env.NODE_ENV == "production") {
-  const localConfig = {
-    port: 80
-  }
-  config = extend(config, localConfig);
-}
+if (process.env.NODE_ENV == "test") {
 
+}
+if (process.env.NODE_ENV == "production") {
+    const prodConfig = {
+        port: 80
+    }
+    config = extend(config, prodConfig);
+}
 module.exports = config;
 
 //基础的mvc

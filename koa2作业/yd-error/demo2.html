@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>意料之中的错误</title>
+</head>
+<body>
+  <script>
+    try{
+      //var error = "error";
+      console.log(error);
+    }catch(e){
+      console.log(e)
+    }
+    //对异步的错误无能为力
+    try{
+      setTimeout(() => {
+        error  
+      }, timeout);
+    } catch(e){
+      console.log("❌", e)
+    }
+  </script>
+</body>
+</html>

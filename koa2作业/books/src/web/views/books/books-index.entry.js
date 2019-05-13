@@ -1,4 +1,4 @@
-import add from "@/components/add/add.js";
+import list from "@/components/list/list.js";
 import banner from "@/components/banner/banner.js";
-add.init();
+list.init();
 banner.init();
