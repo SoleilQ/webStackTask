@@ -1,4 +1,4 @@
-import add from "@/components/add/add.js";
-import banner from "@/components/banner/banner.js";
+import add from "@/add/add.js";
+import banner from "@/banner/banner.js";
 add.init();
 banner.init();

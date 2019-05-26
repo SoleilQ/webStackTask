@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    {% include "../../components/banner/banner.html" %}
     <div class="container" id="app">
       {% block content %}{% endblock  %}
     </div>
@@ -18,12 +17,8 @@
   <script src="https://cdn.staticfile.org/x-tag/2.0.9-alpha/x-tag-raw.js"></script>
   <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
-  <script src="https://cdn.staticfile.org/quicklink/1.0.0/quicklink.js"></script>
   <script>
     $(document).pjax("a", "#app");
-     // quicklink({
-        //     urls:["scripts/books-add.bundle.js"]
-        // })
   </script>
   {% block scripts %}{% endblock  %}
 </body>

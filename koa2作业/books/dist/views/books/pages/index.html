@@ -1,6 +1,6 @@
-{% extends 'page:common/layout.html' %}
+{% extends '../../common/layout.html' %}
 {% block styles %}
-  <!--injectcss-->
+  
 {% endblock %}
 {% block title %} 添加图书📚 {% endblock %}
 {% block content%}
@@ -8,5 +8,5 @@
   {% include "component:add/add.html"%}
 {% endblock %}
 {% block scripts %}
-  <!--injectjs-->
+  <script class="lazyload-js" src="../../../asstes/scripts/runtime.bundle.js"></script><script class="lazyload-js" src="../../../asstes/scripts/books-index.bundle.js"></script>
 {% endblock  %}

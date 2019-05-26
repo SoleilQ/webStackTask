@@ -17,7 +17,7 @@ function builddev() {
             .pipe(babel({
                 //关闭掉外部的babelrc
                 babelrc: false,
-                "plugins": ["@babel/plugin-transform-modules-commonjs"]
+                "plugins": ["@babel/plugin-proposal-decorators","@babel/plugin-transform-modules-commonjs"]
             }))
             .pipe(gulp.dest('dist'))
     })
@@ -29,7 +29,7 @@ function buildprod() {
             //关闭掉外部的babelrc
             babelrc: false,
             ignore: [cleanEntry],
-            "plugins": ["@babel/plugin-transform-modules-commonjs"]
+            "plugins": ["@babel/plugin-proposal-decorators","@babel/plugin-transform-modules-commonjs"]
         }))
         .pipe(gulp.dest('dist'))
 }

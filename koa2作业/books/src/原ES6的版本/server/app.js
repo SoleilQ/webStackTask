@@ -5,25 +5,17 @@ import serve  from 'koa-static';
 import log4js  from 'log4js';
 import errHandle  from './middleware/errHandler';
 import config  from './config';
-import {loadControllers, scopePerRequest} from 'awilix-koa';
-import {asClass, asValue, Lifetime,createContainer} from "awilix";
 const app = new Koa();
-//整个IOC的过程来讲 容器最重要
-const container = createContainer();
-//要注入的所有类装载到container中
-container.loadModules([__dirname + "/services/*.js"], {
-  //制定以下当前注入的函数, 是以什么形式
-  formatName: 'camelCase',
-  resolverOptions: {
-    lifetime: Lifetime.SCOPED
-  }
+log4js.configure({
+  appenders: {cheese: {type: 'file', filename: 'logs/yd.log'}},
+  categories: {default: {appenders: ['cheese'], level: 'error'}}
 });
-app.use(scopePerRequest(container));
-
+const logger =  log4js.getLogger();
 //错误处理
 errHandle.error(app, logger);
 app.use(serve(config.staticDir));
 //初始化所以的路由
+from ('./controllers')(app);
 app.context.render = co.wrap(render({
   root: config.viewDir ,
   autoescape: true,
@@ -34,10 +26,8 @@ app.context.render = co.wrap(render({
   varControls: ['[[', ']]'],
   writeBody: false
 }));
-//自动的装载路由
-app.use(loadControllers(__dirname + "/controller/*.js"), {
-  cwd
-});
+
+
 app.listen(config.port, () => {
   console.log('🍺🐤Server is running');
 });

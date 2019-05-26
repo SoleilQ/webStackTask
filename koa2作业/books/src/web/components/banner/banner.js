@@ -1,4 +1,4 @@
-import "./banner.css";
+//import "./banner.css";
 const banner = {
   init() {
     console.log('🍎banner');
